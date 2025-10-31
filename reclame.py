@@ -5,24 +5,30 @@ def aanbieding_1(smaak,prijs,korting):
     uitvoer = f"Vandaag in de aanbieding: emmertje ijs 1 liter in de smaak {smaak}, van {prijs} euro voor {prijs_na_korting} euro."
     return uitvoer
 
-def inkomsten_totaal(inkomsten):
-    btw = 0.09
+def inkomsten_totaal(inkomsten, btw):
     totaal = 0
     for bedrag in inkomsten:
-        totaal += nr
-    btw_totaal = totaal * btw
-    uitvoer_btw = f"Het totaal van alle inkomsten van deze week is {totaal} euro, waarvan {btw_totaal} euro btw betaald dient te worden."
-    return uitvoer_btw
+        totaal += bedrag
+    btw_bedrag = totaal * btw
+    uitvoer = f"Het totaal van alle inkomsten van deze week is {totaal} euro, waarvan {btw_bedrag} euro btw betaald dient te worden."
+    return uitvoer
 
 def laag_en_hoog(mijn_lijst):
-    return [max(mijn_lijst), min(mijn_lijst)]
+    laagste = min(mijn_lijst)
+    hoogste = max(mijn_lijst)
+    return [laagste, hoogste]
 
 def gemiddelde(mijn_lijst):
+    aantal = len(mijn_lijst)
     totaal = 0
-    for nr in mijn_lijst:
-        totaal += nr
-    gemiddelde_waarde = totaal / len(mijn_lijst)
-    return f"De gemiddelde inkomsten deze week zijn {gemiddelde_waarde} euro."
+    for element in mijn_lijst:
+        totaal += element
+        gemiddelde = totaal / aantal
+    return f"De gemiddelde inkomsten deze week zijn {gemiddelde} euro."
+
+def meervoudig (invoer_lijst):
+    tijdelijk = laag_en_hoog(invoer_lijst)
+    return [tijdelijk[0], tijdelijk[1]]
 
 def combinatie(invoer_lijst_2):
     korte_lijst = laag_en_hoog(invoer_lijst_2)
